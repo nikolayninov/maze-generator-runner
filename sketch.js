@@ -1,5 +1,5 @@
 var cols, rows;
-var w = 80;
+var w = 40;
 var grid = [];
 let runnerPath = [];
 
