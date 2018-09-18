@@ -1,5 +1,5 @@
 var cols, rows;
-var w = 40;
+var w = 80;
 var grid = [];
 let runnerPath = [];
 
@@ -15,7 +15,7 @@ function stopRunner() {
 }
 
 function startRunner() {
-    draw()
+    loop()
 }
 
 function step(up, right, down, left, from) {
@@ -29,8 +29,9 @@ function step(up, right, down, left, from) {
 }
 
 
+
 function setup() {
-    createCanvas(600, 600);
+    createCanvas(400, 400);
     cols = floor(width / w);
     rows = floor(height / w);
     //frameRate(5);
@@ -75,7 +76,7 @@ function draw() {
         }
     }
     if (counter == grid.length) {
-        frameRate(10)
+        // frameRate(15)
 
         if (failed) {
             alert("YOU HIT A WALL!")
@@ -86,6 +87,7 @@ function draw() {
                 noLoop()
             }
             currRunner.visited = true;
+            currRunner.visitedCount++;
             currRunner.show()
             currRunner.highlight()
             let possibleDirs = currRunner.checkPossibleDirections();
